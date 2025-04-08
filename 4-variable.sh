@@ -3,6 +3,7 @@
 NUMBER1=$1
 NUMBER2=$2
 #i need run the command to add 2 numbers
-SUM=$((NUMBER1+NUNUMBER2))
+SUM=$((NUMBER1+NUMBER2))
+
 echo "addition of 2 numbers:$SUM"
 
