@@ -1,5 +1,9 @@
 #!bin/bash/
-#our goal is install mysql
+#our goal is install mysql postfix
+DATE=$(date +%F)
+SCRIPT_NAME=$0
+LOGFILE=/tmp/$SCRIPT-NAME-$DATE.log
+
 USERID=$(id -u)
 VALIDATE(){
     #$1 is first argument
@@ -18,8 +22,8 @@ then
 else
     echo "INFO:you are in root acess"
 fi
-yum install mysql -y
+yum install mysql -y >>$LOGFILE
 
 VALIDATE  $? "mysql"
-yum install postfix -y
+yum install postfix -y >>$LOGFILE
 VALIDATE $? "postfix"
