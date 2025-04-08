@@ -8,4 +8,4 @@ then
 else
     echo "INFO:you are in root acess"
 fi
-yum install myaql -y
+yum install mysql -y
