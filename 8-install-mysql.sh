@@ -10,7 +10,7 @@ else
 fi
 yum install mysql -y
 
-if [$? -ne 0 ]
+if [ $? -ne 0 ]
 then 
     echo " install mysql error"
     exit 1
