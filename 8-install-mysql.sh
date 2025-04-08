@@ -1,6 +1,16 @@
 #!bin/bash/
 #our goal is install mysql
 USERID=$(id -u)
+VALIDATE(){
+    #$1 is first argument
+if [ $1 -ne 0 ]
+then 
+    echo "installation is failure"
+    exit 1
+else 
+   echo "installlation is sucess"
+fi
+}
 
 if [ $USERID -ne 0 ]
 then 
@@ -10,18 +20,6 @@ else
 fi
 yum install mysql -y
 
-if [ $? -ne 0 ]
-then 
-    echo " install mysql error"
-    exit 1
-else
-   echo "installation mysql is success"
-fi
+VALIDATE  $?
 yum install postfix -y
-if [ $? -ne 0 ]
-then 
-    echo " install postfix error"
-    exit 1
-else
-   echo "installation postfix is success"
-fi
+VALIDATE $?
