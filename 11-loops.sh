@@ -34,5 +34,4 @@ yum install $i -y >>$LOGFILE
 VALIDATE $? "$i"
 else
     echo -e "$i $Y installed alredy $N"
-
 fi
