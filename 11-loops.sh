@@ -17,9 +17,9 @@ fi
 VALIDATE(){
 if [ $i -ne 0 ]
 then
-echo "$2 installing $R failure$N"
+    echo -e "$2 installing $R failure$N"
 else
-echo "$2 installing $G sucess$N"
+    echo -e  "$2 installing $G sucess$N"
 fi
 }
 
@@ -35,3 +35,4 @@ VALIDATE $? "$i"
 else
     echo -e "$i $Y installed alredy $N"
 fi
+done
