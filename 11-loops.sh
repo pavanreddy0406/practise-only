@@ -26,11 +26,11 @@ fi
 for i in $@
 do
 
-yum installed $i >>$LOGFILE
+yum installed $i &>>$LOGFILE
 if [ $? -ne 0 ]
 then
     echo "$i not install: lets install"
-yum install $i -y >>$LOGFILE
+yum install $i -y &>>$LOGFILE
 VALIDATE $? "$i"
 else
     echo -e "$i $Y installed alredy $N"
