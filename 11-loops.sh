@@ -14,8 +14,8 @@ then
   echo -e "$R ERROR:please run with root acess $N"
   exit 1
 fi
-VALIDATE[]{
-if [$i -ne 0 ]
+VALIDATE(){
+if [ $i -ne 0 ]
 then
 echo "$2 installing $R failure$N"
 else
