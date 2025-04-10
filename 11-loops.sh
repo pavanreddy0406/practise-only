@@ -27,6 +27,8 @@ then
     echo "$R ERROR:please go with root acess $N"
     exit 1
 fi
+# all args in $@
+
 for i in $@
 do
 
