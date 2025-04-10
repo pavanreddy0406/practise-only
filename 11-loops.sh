@@ -27,6 +27,8 @@ then
     echo "$R ERROR:please go with root acess $N"
     exit 1
 fi
+for i in $@
+do
 
 yum installed $i &>>LOGFILE
  if [ $i -ne 0 ]
@@ -37,3 +39,5 @@ yum installed $i &>>LOGFILE
      VALIDATE $? "$i"
 else
    echo " $Y $i is alredy installed $N"
+fi
+done
