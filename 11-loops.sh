@@ -12,11 +12,11 @@ N=\e[0m"
 VALIDATE (){
 if [ $i -ne 0 ]
 then
-    echo " installing $2...$R failure $N"
+    echo -e " installing $2...$R failure $N"
     exit 1
 
 else
-    echo " installing $2 ... $G sucess $N"
+    echo -e " installing $2 ... $G sucess $N"
 fi
 }
 
@@ -40,6 +40,6 @@ yum installed $i &>>LOGFILE
      yum install $i -y &>>LOGFILE
      VALIDATE $? "$i"
 else
-   echo " $Y $i is alredy installed $N"
+   echo -e "$Y $i is alredy installed $N"
 fi
 done
