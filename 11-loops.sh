@@ -1,38 +1,39 @@
 #!/bin/bash/
 DATE=$(date +%F)
 LOGDIR=/home/centos/shellscript-logs
-#/home/centos/shellscript-logs/script-name-datw.log
 SCRIPT_NAME=$0
 LOGFILE=$LOGDIR/$0-$DATE.log
+
 USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
-N="\e[0m"
 Y="\e[33m"
-if [ $USERID -ne 0 ]
-then
-  echo -e "$R ERROR:please run with root acess $N"
-  exit 1
-fi
-VALIDATE(){
+N=\e[0m"
+VALIDATE (){
 if [ $i -ne 0 ]
 then
-    echo -e "$2 installing $R failure$N"
+    echo " installing $2...$R failure $N"
+    exit 1
+
 else
-    echo -e  "$2 installing $G sucess$N"
+    echo " installing $2 ... $G sucess $N"
 fi
 }
 
-for i in $@
-do
 
-yum installed $i &>>$LOGFILE
-if [ $? -ne 0 ];
+
+if[ $USERID -ne 0 ];
 then
-    echo "$i not install: lets install"
-yum install $i -y &>>$LOGFILE
-VALIDATE $? "$i"
-else
-    echo -e "$i $Y installed alredy $N"
+    echo "$R ERROR:please go with root acess $N"
+    exit 1
 fi
-done
+
+yum installed $i &>>LOGFILE
+ if [ $i -ne 0 ]
+ then
+     echo "$i is not installed : lets install"
+     exit 1
+     yum install $i -y &>>LOGFILE
+     VALIDATE $? "$i"
+else
+   echo " $Y $i is alredy installed $N"
