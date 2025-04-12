@@ -12,5 +12,11 @@ DISK_USAGE=$(df -hT|grep -vE 'tmpfs|Filesystem')
 DISK_USAGE_THRESHOLD=1
 while IFS= read line
 do
- echo "output:$line"
+USAGE=$(echo $line |awk '{print$6}' |cut -d  %-f1)
+partition=$(echo $line |awk {print $1}')
+if [ $usage -gt $DISK_USAGE_THRESHOLD ];
+then
+message+="HIGH DISK USAGE $partition: $usage"
+fi
 done <<< $DISK_USAGE
+echo "message:$message"
