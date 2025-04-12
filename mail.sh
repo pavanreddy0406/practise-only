@@ -8,5 +8,5 @@ ALERT_TYPE=$5
 
 #echo "all args: $@"
 #echo "$BODY | mail -s "$SUBJECT" $TO_ADDRESS
-FINAL_BODY=$(sed -e 's/TEAM_NAME/$TEAM_NAME/g' -e 's/ALRET_TYPE/$ALRET_TYPE/g' -e "s/MESSAGE/$BODY/g" template.html)
+FINAL_BODY=$(sed -e "s/TEAM_NAME/$TEAM_NAME/g" -e "s/ALRET_TYPE/$ALRET_TYPE/g" -e "s/MESSAGE/$BODY/g" template.html)
 echo "$FINAL_BODY" | mail -s "$SUBJECT" "$TO_ADDRESS"
