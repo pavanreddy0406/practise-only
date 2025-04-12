@@ -19,4 +19,6 @@ then
      message+="HIGH DISK USAGE $partition: $usage"
 fi
 done <<< $DISK_USAGE
-echo "message: $message"
+echo -e "message: $message"
+
+echo "$message" | mail -s "high disk usage" pavanreddyyeddala@gmail.com
