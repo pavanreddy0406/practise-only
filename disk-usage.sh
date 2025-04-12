@@ -13,6 +13,6 @@ DISK_USAGE_THRESHOLD=1
  
 while IFS= read line
 do
-echo "output: $line
+echo "output: $line"
 done <<< $DISK_USAGE
 
