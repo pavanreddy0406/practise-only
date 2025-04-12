@@ -21,4 +21,5 @@ fi
 done <<< $DISK_USAGE
 echo -e "message: $message"
 
-echo "$message" | mail -s "high disk usage" pavanreddyyeddala@gmail.com
+#echo "$message" | mail -s "high disk usage" pavanreddyyeddala@gmail.com
+sh mail.sh pavanreddyyeddala@gmail.com "high disk usage" "$message" "devops team" "high disk usage"
